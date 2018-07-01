@@ -40,19 +40,20 @@ def flatten_dict(obj, indices, depth):
     cur_string = '_'.join(depth)
     current_obj = {}
 
-    # Handle nested indexing (e.g. multiple nested "id" or "__index" fields)
+    # Handle nested "id"/"__index" fields
     for name, id in indices:
         if not current_obj.get(name):
             current_obj[name] = id
         else:
             if not isinstance(current_obj[name], list):
-                current_obj[name] = (current_obj[name],)
-            current_obj[name] += (id,)
-
+                current_obj[name] = [current_obj[name]]
+            current_obj[name].append(id)
     if not final_data.get(cur_string):
         final_data[cur_string] = []
 
     for field, subobj in obj.items():
+        if field == 'id' or field == '__index':
+            continue
         temp_field = field
 
         ############################################################################
@@ -61,10 +62,10 @@ def flatten_dict(obj, indices, depth):
 
         # truncate last character if current subobject is a list
         # stopgap measure:
-        # add "__l" suffix to allow easier reconstruction and lesser
+        # replace truncating with "__l" suffix to allow easier reconstruction and lesser
         # chance of overlapping field names.
 
-        if isinstance(subobj, list) and len(field) > 1:
+        if isinstance(subobj, list) and len(field) > 1 and field[-1] == 's':
             temp_field = field[:-1]
             # temp_field += '__l'
 
@@ -93,18 +94,18 @@ def flatten_json(filename):
     try:
         with open(filename) as jsonfile:
             json_obj = json.loads(jsonfile.read())
-    except:
-        print("Error occured in reading file.")
+    except Exception as e:
+        print(e)
+
 
     flatten(json_obj)
     final_data.pop('')
-
     for field, subobj in final_data.items():
         cur_file = "{}.json".format(field)
         try:
             outfile = open(cur_file,'x')
-        except:
-            break
+        except Exception as e:
+            print(e)
         print("Generated {}".format(cur_file))
         json.dump(subobj, outfile)
 
