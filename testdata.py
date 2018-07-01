@@ -79,59 +79,59 @@ sol2 ={
    "donut_batter_type": [
       {
          "id": "1",
-         "__index": 0,
+         "__index": '0',
          "type": "Regular"
       },
       {
          "id": "1",
-         "__index": 1,
+         "__index": '1',
          "type": "Chocolate"
       },
       {
          "id": "1",
-         "__index": 2,
+         "__index": '2',
          "type": "Blueberry"
       },
       {
          "id": "1",
-         "__index": 3,
+         "__index": '3',
          "type": "Devil's Food"
       }
    ],
    "donut_topping": [
       {
          "id": "1",
-         "__index": 0,
+         "__index": '0',
          "type": "None"
       },
       {
          "id": "1",
-         "__index": 1,
+         "__index": '1',
          "type": "Glazed"
       },
       {
          "id": "1",
-         "__index": 2,
+         "__index": '2',
          "type": "Sugar"
       },
       {
          "id": "1",
-         "__index": 3,
+         "__index": '3',
          "type": "Powdered Sugar"
       },
       {
          "id": "1",
-         "__index": 4,
+         "__index": '4',
          "type": "Chocolate with Sprinkles"
       },
       {
          "id": "1",
-         "__index": 5,
+         "__index": '5',
          "type": "Chocolate"
       },
       {
          "id": "1",
-         "__index": 6,
+         "__index": '6',
          "type": "Maple"
       }
    ]

@@ -103,11 +103,11 @@ def split_to_file(sol):
         cur_file = "{}.json".format(field)
         try:
             outfile = open(cur_file,'x')
+            json.dump(subobj, outfile)
+            print("Generated {}".format(cur_file))
         except Exception as e:
             print(e)
-        print("Generated {}".format(cur_file))
-        json.dump(subobj, outfile)
-
+        
 
 def flatten_json(filename):
     obj = None
@@ -123,7 +123,7 @@ def flatten_json(filename):
 class TestUM(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.maxDiff = None
 
     def test_1(self):
         f = Flattener()

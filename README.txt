@@ -41,6 +41,6 @@ KNOWN PROBLEMS:
 2.) Singularizing can also cause conflicts between field names.
     'https://s3-us-west-2.amazonaws.com/datacoral.codex/startups.json' contains
     two independent nested fields 'acquisition' and 'acquisitions', both of
-    which would result in the same resultant file name. A simple workaround
-    is to add an '__l' suffix to list based files (instead of singularizing).
+    which would result in the same file name. A simple workaround is to add an
+     '__l' suffix to list based files (instead of singularizing).
     This workaround requires -suffix flag.
