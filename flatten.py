@@ -7,7 +7,7 @@ SUFFIX = False
 
 class Flattener:
     # obj : json object to be flattened
-    # indices : combinatin of indices used to identify current subobject
+    # indices : combination of indices used to identify current subobject
     # depth : tuple of names traversed in original object to reach subobject
     def _flatten_list(self, obj, indices, depth):
 
@@ -107,7 +107,7 @@ def split_to_file(sol):
             print("Generated {}".format(cur_file))
         except Exception as e:
             print(e)
-        
+
 
 def flatten_json(filename):
     obj = None
